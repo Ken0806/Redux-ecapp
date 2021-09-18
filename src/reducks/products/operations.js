@@ -1,16 +1,16 @@
-import { signInAction, signOutAction } from "./actions";
 import { push } from "connected-react-router";
-import { auth, db, FirebaseTimestamp } from "../../firebase/index";
+import { db, FirebaseTimestamp } from "../../firebase/index";
 
 const productsRef = db.collection("products");
 
-export const saveProduct = (name, description, category, gender, price) => {
+export const saveProduct = (name, description, category, gender, price, images) => {
   return async (dispatch) => {
     const timestamp = FirebaseTimestamp.now();
     const data = {
       category: category,
       description: description,
       gender: gender,
+      images: images,
       name: name,
       price: parseInt(price, 10),
       updated_at: timestamp,
