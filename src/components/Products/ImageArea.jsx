@@ -25,7 +25,7 @@ const ImageArea = (props) => {
         return storage.ref("images").child(id).delete();
       }
     },
-    [props.images]
+    [props]
   );
 
   const uploadImage = useCallback(
@@ -52,7 +52,7 @@ const ImageArea = (props) => {
         });
       });
     },
-    [props.setImages]
+    [props]
   );
 
   return (
